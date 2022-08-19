@@ -24,19 +24,35 @@ function objectTotalPrice(objectId, basePrice, quantity) {
 
 
 // function to convert the innerText to an integer value
-function innerTextToString(input) {
+function getTextElementValueById(input) {
     const objectValue = document.getElementById(input);
     const objectValueString = objectValue.innerText;
     return objectValueInt = parseInt(objectValueString);
 }
 
+// function to set a value as innerText of an element
+function setValueToTextElementbyId(elementId, value) {
+    const element = document.getElementById(elementId);
+    return element.innerText = value;
+}
+
+
 // total shopping price calculation
-function subTotalPrice() {
-    const totalPhonePriceInt = innerTextToString("phone-cost");
-    const totalCasePriceInt = innerTextToString("case-cost");
+function checkoutPrice() {
+    const totalPhonePriceInt = getTextElementValueById("phone-cost");
+    const totalCasePriceInt = getTextElementValueById("case-cost");
     const totalShoppingPrice = totalPhonePriceInt + totalCasePriceInt;
 
-    // getting the sub-total id
-    const subTotalElement = document.getElementById("sub-total");
-    return subTotalElement.innerText = totalShoppingPrice;
+    // sub-total 
+    setValueToTextElementbyId("sub-total", totalShoppingPrice);
+
+    // tax-amount
+    const taxAmount = 0.1; // 10% tax
+    const totalTax = totalShoppingPrice * taxAmount;
+    setValueToTextElementbyId("tax-amount", totalTax);
+
+    // Final amount to be paid
+    const finalAmount = totalShoppingPrice + totalTax;
+    setValueToTextElementbyId("final-amount", finalAmount);
 }
+
