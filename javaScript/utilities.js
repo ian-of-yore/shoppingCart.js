@@ -28,3 +28,21 @@ function phonePrice(phoneQuantity) {
     const phoneElement = document.getElementById("phone-cost");
     return phoneElement.innerText = totalPhoneCost;
 }
+
+// total shopping price calculation
+function totalPrice() {
+    const totalPhonePrice = document.getElementById("phone-cost");
+    const totalPhonePriceString = totalPhonePrice.innerText;
+    const totalPhonePriceInt = parseInt(totalPhonePriceString);
+
+    const totalCasePrice = document.getElementById("case-cost");
+    const totalCasePriceString = totalCasePrice.innerText;
+    const totalCasePriceInt = parseInt(totalCasePriceString);
+
+    const totalShoppingPrice = totalPhonePriceInt + totalCasePriceInt;
+
+    // getting the sub-total id
+    const subTotalElement = document.getElementById("sub-total");
+    return subTotalElement.innerText = totalShoppingPrice;
+
+}
