@@ -15,19 +15,13 @@ function quantityUpdateButton(objectId, isIncreasing) {
 }
 
 
-// phoneCase Price based on the quantity
-function phoneCasePrice(phoneCaseQuantity) {
-    const totalCaseCost = phoneCaseQuantity * 50;
-    const caseElement = document.getElementById("case-cost");
-    return caseElement.innerText = totalCaseCost;
+// Calulating object total price based on object quantity
+function objectTotalPrice(objectId, basePrice, quantity) {
+    const totalCost = basePrice * quantity;
+    const objectElement = document.getElementById(objectId);
+    return objectElement.innerText = totalCost;
 }
 
-// Phone Price based on the quantity
-function phonePrice(phoneQuantity) {
-    const totalPhoneCost = phoneQuantity * 1000;
-    const phoneElement = document.getElementById("phone-cost");
-    return phoneElement.innerText = totalPhoneCost;
-}
 
 // function to convert the innerText to an integer value
 function innerTextToString(input) {
@@ -37,7 +31,7 @@ function innerTextToString(input) {
 }
 
 // total shopping price calculation
-function totalPrice() { 
+function subTotalPrice() {
     const totalPhonePriceInt = innerTextToString("phone-cost");
     const totalCasePriceInt = innerTextToString("case-cost");
     const totalShoppingPrice = totalPhonePriceInt + totalCasePriceInt;
@@ -45,5 +39,4 @@ function totalPrice() {
     // getting the sub-total id
     const subTotalElement = document.getElementById("sub-total");
     return subTotalElement.innerText = totalShoppingPrice;
-
 }
