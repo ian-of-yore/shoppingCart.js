@@ -48,7 +48,8 @@ function checkoutPrice() {
 
     // tax-amount
     const taxAmount = 0.1; // 10% tax
-    const totalTax = totalShoppingPrice * taxAmount;
+    const totalTaxString = (totalShoppingPrice * taxAmount).toFixed(2);
+    const totalTax = parseFloat(totalTaxString);
     setValueToTextElementbyId("tax-amount", totalTax);
 
     // Final amount to be paid
